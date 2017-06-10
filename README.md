@@ -1,8 +1,10 @@
 # Higher Expectations
 
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 This project is split into two parts:
 
-* `src/` - A Vue.js app.
+* `src/` - A Vue.js app, bootstraped with http://vuejs-templates.github.io/webpack/
 * `server/` - An Express app that exposes an API for the client.
 
 ## Development Setup
