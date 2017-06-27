@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "mongoose": "^4.11.0",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1"
   },
