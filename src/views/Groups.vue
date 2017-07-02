@@ -48,63 +48,63 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        search: '',
-        pagination: {},
-        headers: [
-          {
-            text: 'Name',
-            left: true,
-            value: 'name'
-          },
-          {
-            text: 'Description',
-            left: true,
-            value: 'description'
-          },
-          {
-            text: 'Type',
-            left: true,
-            value: 'type'
-          },
-          {
-            text: 'Total Members',
-            value: 'members'
-          }
-        ],
-        items: [
-          {
-            value: false,
-            name: 'Freshman',
-            members: 564,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-            type: 'Class'
-          },
-          {
-            value: false,
-            name: 'Sophomores',
-            members: 123,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-            type: 'Class'
-          },
-          {
-            value: false,
-            name: 'Juniors',
-            members: 623,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-            type: 'Class'
-          },
-          {
-            value: false,
-            name: 'Seniors',
-            members: 450,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-            type: 'Class'
-          }
-        ]
-      }
+export default {
+  data () {
+    return {
+      search: '',
+      pagination: {},
+      headers: [
+        {
+          text: 'Name',
+          left: true,
+          value: 'name'
+        },
+        {
+          text: 'Description',
+          left: true,
+          value: 'description'
+        },
+        {
+          text: 'Type',
+          left: true,
+          value: 'type'
+        },
+        {
+          text: 'Total Members',
+          value: 'members'
+        }
+      ],
+      items: [
+        {
+          value: false,
+          name: 'Freshman',
+          members: 564,
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
+          type: 'Class'
+        },
+        {
+          value: false,
+          name: 'Sophomores',
+          members: 123,
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
+          type: 'Class'
+        },
+        {
+          value: false,
+          name: 'Juniors',
+          members: 623,
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
+          type: 'Class'
+        },
+        {
+          value: false,
+          name: 'Seniors',
+          members: 450,
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
+          type: 'Class'
+        }
+      ]
     }
   }
+}
 </script>
