@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex, { Store } from 'vuex'
+import modules from './modules'
 
 Vue.use(Vuex)
 
@@ -7,6 +8,7 @@ Vue.use(Vuex)
 const strict = process.env.NODE_ENV !== 'production'
 
 export default new Store({
+  modules,
   strict,
   plugins: []
 })

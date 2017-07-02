@@ -14,8 +14,8 @@
           ></v-text-field>
         </v-card-title>
         <v-data-table
-            v-bind:headers="headers"
-            v-bind:items="items"
+            v-bind:headers="groupsTableheaders"
+            v-bind:items="groupsTableItems"
             v-bind:search="search"
           >
           <template slot="items" scope="props">
@@ -48,62 +48,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { UPDATE_GROUP_SEARCH } from '../store/mutation-types'
+
 export default {
-  data () {
-    return {
-      search: '',
-      pagination: {},
-      headers: [
-        {
-          text: 'Name',
-          left: true,
-          value: 'name'
-        },
-        {
-          text: 'Description',
-          left: true,
-          value: 'description'
-        },
-        {
-          text: 'Type',
-          left: true,
-          value: 'type'
-        },
-        {
-          text: 'Total Members',
-          value: 'members'
-        }
-      ],
-      items: [
-        {
-          value: false,
-          name: 'Freshman',
-          members: 564,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-          type: 'Class'
-        },
-        {
-          value: false,
-          name: 'Sophomores',
-          members: 123,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-          type: 'Class'
-        },
-        {
-          value: false,
-          name: 'Juniors',
-          members: 623,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-          type: 'Class'
-        },
-        {
-          value: false,
-          name: 'Seniors',
-          members: 450,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-          type: 'Class'
-        }
-      ]
+  computed: {
+    ...mapGetters([
+      'groupsTableheaders',
+      'groupsTableItems'
+    ]),
+    search: {
+      get () {
+        return this.$store.state.groups.search
+      },
+      set (search) {
+        this.$store.commit(UPDATE_GROUP_SEARCH, search)
+      }
     }
   }
 }
