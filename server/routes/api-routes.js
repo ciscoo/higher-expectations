@@ -11,7 +11,7 @@ const router = express.Router()
 router.use('/groups', groupRoutes)
 router.use('/group-types', groupTypeRoutes)
 router.use('/events', eventRoutes)
-router.use('/option', optionRoutes)
+router.use('/options', optionRoutes)
 router.use('/tasks', taskRoutes)
 router.use('/users', userRoutes)
 
