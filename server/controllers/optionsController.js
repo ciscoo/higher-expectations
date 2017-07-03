@@ -1,15 +1,10 @@
-// optionsController
-
-const express = require('express')
-const router = express.Router()
-
 const careerInterests = require('../utils/careerInterests')
 const extraInterests = require('../utils/extraInterests')
 const postPlans = require('../utils/postPlans')
 const raceAndEthnicity = require('../utils/raceAndEthnicity')
 const yearInSchool = require('../utils/yearInSchool')
 
-router.get('/', (req, res) => {
+exports.index = (req, res) => {
   res.json({
     careerInterests,
     extraInterests,
@@ -18,6 +13,4 @@ router.get('/', (req, res) => {
     races: raceAndEthnicity.races,
     ethnicity: raceAndEthnicity.ethnicity
   })
-})
-
-module.exports = router
+}
