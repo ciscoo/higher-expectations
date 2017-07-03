@@ -22,7 +22,7 @@ exports.destroy = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
-  await Events.findByIdAndUpdate(req.params.id, req.body)
+  await Event.findByIdAndUpdate(req.params.id, req.body)
   const event = await Event.findById(req.params.id).exec()
   res.json({ data: event })
 }
