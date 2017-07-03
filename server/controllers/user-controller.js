@@ -12,7 +12,7 @@ exports.index = async (req, res) => {
 }
 
 exports.show = async (req, res) => {
-  const user = User.findById(req.params.id).exec()
+  const user = await User.findById(req.params.id).exec()
   res.json({ data: user })
 }
 
