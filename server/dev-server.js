@@ -14,6 +14,7 @@ const eventController = require('./controllers/eventController')
 const taskController = require('./controllers/taskController')
 const optionsController = require('./controllers/optionsController')
 const errorHandlers = require('./middleware/error-handlers')
+const { apiRoutes } = require('./routes')
 
 checkVersions()
 
@@ -66,6 +67,7 @@ app.use('/users', userController)
 app.use('/events', eventController)
 app.use('/tasks', taskController)
 app.use('/options', optionsController)
+app.use('/api', apiRoutes)
 
 // Catch all invalid routes
 app.use(errorHandlers.invalidRoute)
