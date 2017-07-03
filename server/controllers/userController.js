@@ -1,56 +1,28 @@
-// userController.js
+const User = require('../models/User')
 
-const express = require('express')
-const router = express.Router()
+exports.store = async (req, res) => {
+  const user = new User(req.body)
+  await user.save()
+  res.json({ data: user })
+}
 
-const user = require('../models/User')
+exports.index = async (req, res) => {
+  const users = await User.find().exec()
+  res.json({ data: users })
+}
 
-// CREATES A NEW USER
+exports.show = async (req, res) => {
+  const user = User.findById(req.params.id).exec()
+  res.json({ data: user })
+}
 
-router.post('/', function (req, res) {
-  user.create(req.body)
-    .then(user => {
-      console.log('user: ', user)
-      res.status(200).json(user)
-    })
-    .catch(err => {
-      console.log('error: ', err)
-      res.status(500).json(err)
-    })
-})
+exports.destroy = async (req, res) => {
+  await User.findByIdAndRemove(req.params.id).exec()
+  res.status(204).send()
+}
 
-  // RETURNS ALL THE USERS IN THE DATABASE
-router.get('/', function (req, res) {
-  user.find({}, function (err, users) {
-    if (err) return res.status(500).send('There was a problem finding the users.')
-    res.status(200).send(users)
-  })
-})
-
-// GETS A SINGLE USER FROM THE DATABASE
-router.get('/:id', function (req, res) {
-  user.findById(req.params.id, function (err, user) {
-    if (err) return res.status(500).send('There was a problem finding the user.')
-    if (!user) return res.status(404).send('No user found')
-    res.status(200).send(user)
-  })
-})
-
-// DELETE A USER FROM THE DATABASE
-router.delete('/:id', function (req, res) {
-  user.findByIdAndRemove(req.params.id, function (err, user) {
-    if (err) return res.status(500).send('There was a problem deleting the user.')
-    res.status(200).send('User ' + user.name + ' was deleted.')
-  })
-})
-
-// UPDATES A SINGLE USER IN THE DATABASE
-router.put('/:id', function (req, res) {
-  user.findByIdAndUpdate(req.params.id, req.body, {new: true},
-  function (err, user) {
-    if (err) return res.status(500).send('There was a problem updating the user.')
-    res.status(200).send(user)
-  })
-})
-
-module.exports = router
+exports.update = async (req, res) => {
+  await User.findByIdAndUpdate(req.params.id, req.body).exec()
+  const user = await User.findById(req.params.id).exec()
+  res.json({ data: user })
+}
