@@ -14,7 +14,7 @@ const definition = {
   type: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'GroupType',
-    require: 'Missing required [type] property.'
+    required: 'Missing required [type] property.'
   }
 }
 
