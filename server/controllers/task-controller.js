@@ -1,4 +1,4 @@
-const Task = require('../models/Task')
+const { Task } = require('../models')
 
 exports.store = async (req, res) => {
   const task = new Task(req.body)

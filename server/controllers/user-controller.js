@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const { User } = require('../models')
 
 exports.store = async (req, res) => {
   const user = new User(req.body)

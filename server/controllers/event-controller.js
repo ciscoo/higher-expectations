@@ -1,4 +1,4 @@
-const Events = require('../models/Event')
+const { Event } = require('../models')
 
 exports.store = async (req, res) => {
   const event = new Event(req.body)
@@ -7,22 +7,22 @@ exports.store = async (req, res) => {
 }
 
 exports.index = async (req, res) => {
-  const events = await Events.find().exec()
+  const events = await Event.find().exec()
   res.json({ data: events })
 }
 
 exports.show = async (req, res) => {
-  const event = Events.findById(req.params.id).exec()
+  const event = Event.findById(req.params.id).exec()
   res.json({ data: event })
 }
 
 exports.destroy = async (req, res) => {
-  await Events.findByIdAndRemove(req.params.id).exec()
+  await Event.findByIdAndRemove(req.params.id).exec()
   res.status(201).send()
 }
 
 exports.update = async (req, res) => {
   await Events.findByIdAndUpdate(req.params.id, req.body)
-  const event = await Events.findById(req.params.id).exec()
+  const event = await Event.findById(req.params.id).exec()
   res.json({ data: event })
 }
