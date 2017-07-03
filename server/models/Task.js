@@ -1,7 +1,6 @@
-// Task.js
-
 const mongoose = require('mongoose')
-const taskSchema = new mongoose.Schema({
+
+const definition = {
   name: String,
   whatDescription: String,
   whyDescription: String,
@@ -20,7 +19,8 @@ const taskSchema = new mongoose.Schema({
   postPlans: String,
   extraInter: String,
   careerInter: String
-})
-mongoose.model('Task', taskSchema)
+}
 
-module.exports = mongoose.model('Task')
+const taskSchema = new mongoose.Schema(definition)
+
+module.exports = mongoose.model('Task', taskSchema)

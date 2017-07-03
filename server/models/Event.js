@@ -1,7 +1,6 @@
-// Event.js
-
 const mongoose = require('mongoose')
-const eventSchema = new mongoose.Schema({
+
+const definition = {
   startDate: Date,
   startTime: String,
   endTime: String,
@@ -17,7 +16,8 @@ const eventSchema = new mongoose.Schema({
   postPlans: String,
   extraInterest: String,
   careerInterest: String
-})
-mongoose.model('Event', eventSchema)
+}
 
-module.exports = mongoose.model('Event')
+const eventSchema = new mongoose.Schema(definition)
+
+module.exports = mongoose.model('Event', eventSchema)
