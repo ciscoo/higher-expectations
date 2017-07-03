@@ -22,7 +22,7 @@ const app = express()
 const compiler = webpack(webpackConfig)
 
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://JordanAnderson:1qaz!QAZ@ds135812.mlab.com:35812/hex')
+mongoose.connect(process.env.MONGO_URI)
 
 // Configure webpack dev server and hot reload.
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
