@@ -1,8 +1,8 @@
-const Group = require('./group')
-const GroupType = require('./group-type')
-const Event = require('./event')
-const Task = require('./task')
-const User = require('./user')
+const Group = require('./group-model')
+const GroupType = require('./group-type-model')
+const Event = require('./event-model')
+const Task = require('./task-model')
+const User = require('./user-model')
 
 module.exports = {
   Group,
