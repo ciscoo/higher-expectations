@@ -13,6 +13,7 @@ const userController = require('./controllers/userController')
 const eventController = require('./controllers/eventController')
 const taskController = require('./controllers/taskController')
 const optionsController = require('./controllers/optionsController')
+const errorHandlers = require('./middleware/error-handlers')
 
 checkVersions()
 
@@ -66,8 +67,14 @@ app.use('/events', eventController)
 app.use('/tasks', taskController)
 app.use('/options', optionsController)
 
-// Redirect any invalid requests back to document root with a 404 status
-app.all('*', (req, res) => { res.status(404).redirect('/') })
+// Catch all invalid routes
+app.use(errorHandlers.invalidRoute)
+
+// Handle mongoose errors
+app.use(errorHandlers.validationErrors)
+
+// Show full error in development
+app.use(errorHandlers.development)
 
 // We need to wait until bundle is valid in development
 console.log('Waiting for webpack to finish...')
