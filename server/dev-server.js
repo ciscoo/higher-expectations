@@ -7,12 +7,7 @@ const bodyParser = require('body-parser')
 const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.dev.conf')
 const webpackHotMiddleware = require('webpack-hot-middleware')
-const connectHistory = require('connect-history-api-fallback')
 const mongoose = require('mongoose')
-const userController = require('./controllers/userController')
-const eventController = require('./controllers/eventController')
-const taskController = require('./controllers/taskController')
-const optionsController = require('./controllers/optionsController')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
 
@@ -63,10 +58,6 @@ app.get('/', (req, res) => {
   res.end()
 })
 
-app.use('/users', userController)
-app.use('/events', eventController)
-app.use('/tasks', taskController)
-app.use('/options', optionsController)
 app.use('/api', apiRoutes)
 
 // Catch all invalid routes
