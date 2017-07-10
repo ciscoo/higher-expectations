@@ -13,7 +13,12 @@ const definition = {
   yearInSchool: String,
   postPlans: String,
   extraInterest: String,
-  careerInterest: String
+  careerInterest: String,
+  type: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Group',
+    required: 'Missing required [type] property.'
+  }
 }
 
 const userSchema = new mongoose.Schema(definition)
