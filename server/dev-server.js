@@ -18,8 +18,8 @@ const app = express()
 const compiler = webpack(webpackConfig)
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGO_URI, { useMongoClient: true })
-
+mongoose.connect('localhost/local', { useMongoClient: true })
+// process.env.MONGO_URI
 // Configure webpack dev server and hot reload.
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
