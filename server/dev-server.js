@@ -8,6 +8,7 @@ const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.dev.conf')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const mongoose = require('mongoose')
+const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
 
@@ -34,6 +35,11 @@ compiler.plugin('compilation', (compilation) => {
     hotMiddleware.publish({ action: 'reload' })
     cb()
   })
+})
+
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/users' }), (req, res) => {
+  res.redirect(req.session.returnTo || '/')
 })
 
 // Serve webpack bundle output
@@ -81,4 +87,3 @@ function startServer () {
     opn(`http://localhost:${port}`)
   })
 }
-
