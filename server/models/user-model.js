@@ -18,8 +18,8 @@ const definition = {
   careerInterest: String,
   type: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Group',
-    required: 'Missing required [type] property.'
+    ref: 'Group'
+    // required: 'Missing required [type] property.'
   },
   profile: {
     name: String,
