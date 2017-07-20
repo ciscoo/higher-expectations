@@ -11,7 +11,8 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
-const passportConfig = require('./config/passport')
+
+require('./config/passport')
 
 checkVersions()
 
