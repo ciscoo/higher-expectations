@@ -1,12 +1,21 @@
 const mongoose = require('mongoose')
 
 const definition = {
+  startDate: Date,
   startTime: String,
   endTime: String,
-  type: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Helper'
-  }
+  title: String,
+  location: String,
+  description: String,
+  contactInfo: String,
+  points: Number,
+  validation: String,
+  audience: String,
+  district: String,
+  school: String,
+  postPlans: String,
+  extraInterest: String,
+  careerInterest: String
 }
 
 const eventSchema = new mongoose.Schema(definition)
