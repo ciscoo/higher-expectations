@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
+const passportConfig = require('./config/passport')
 
 checkVersions()
 
@@ -37,8 +38,11 @@ compiler.plugin('compilation', (compilation) => {
   })
 })
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/users' }), (req, res) => {
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
   res.redirect(req.session.returnTo || '/')
 })
 
