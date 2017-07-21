@@ -93,4 +93,3 @@ exports.isAuthorized = (req, res, next) => {
     res.redirect(`/auth/${provider}`)
   }
 }
-
