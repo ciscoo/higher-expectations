@@ -8,8 +8,11 @@ const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.dev.conf')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const mongoose = require('mongoose')
+const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
+
+require('./config/passport')
 
 checkVersions()
 
@@ -18,8 +21,8 @@ const app = express()
 const compiler = webpack(webpackConfig)
 
 mongoose.Promise = global.Promise
-mongoose.connect('localhost/local', { useMongoClient: true })
-// process.env.MONGO_URI
+mongoose.connect(process.env.MONGO_URI, { useMongoClient: true })
+
 // Configure webpack dev server and hot reload.
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
@@ -34,6 +37,14 @@ compiler.plugin('compilation', (compilation) => {
     hotMiddleware.publish({ action: 'reload' })
     cb()
   })
+})
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
+  res.redirect(req.session.returnTo || '/')
 })
 
 // Serve webpack bundle output
@@ -81,4 +92,3 @@ function startServer () {
     opn(`http://localhost:${port}`)
   })
 }
-
