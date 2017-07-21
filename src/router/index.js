@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/views/Dashboard'
 import Groups from '@/views/Groups'
-import Users from '@/views/Users'
+import Tasks from '@/views/Tasks'
+import Deadlines from '@/views/Deadlines'
+import Events from '@/views/Events'
+import Login from '@/views/login'
 
 Vue.use(Router)
 
@@ -19,9 +22,24 @@ export default new Router({
       component: Groups
     },
     {
-      path: '/users',
-      name: 'Users',
-      component: Users
+      path: '/tasks',
+      name: 'Tasks',
+      component: Tasks
+    },
+    {
+      path: '/deadlines',
+      name: 'Deadlines',
+      component: Deadlines
+    },
+    {
+      path: '/events',
+      name: 'Events',
+      component: Events
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
