@@ -13,9 +13,9 @@ const definition = {
   district: String,
   school: String,
   yearInSchool: String,
-  postPlans: String,
-  extraInterest: String,
-  careerInterest: String,
+  postPlans: [String],
+  extraInter: [String],
+  careerInter: [String],
   type: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Group'
