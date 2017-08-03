@@ -3,6 +3,10 @@
     <v-navigation-drawer persistent light :mini-variant.sync="mini" v-model="drawer">
       <v-list class="pa-0">
         <v-list-item>
+          <v-subheader class="mt-3 grey--text text--darken-1">-USER SCHOOL- ADMIN</v-subheader>
+          <v-divider></v-divider>
+          </v-list-item>
+          <v-list-item>
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
               <img src="https://randomuser.me/api/portraits/men/85.jpg">
@@ -34,7 +38,7 @@
     </v-navigation-drawer>
     <v-toolbar fixed light>
       <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Higher Expectations</v-toolbar-title>
+      <v-toolbar-title>Higher Expectations Admin Panel</v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>

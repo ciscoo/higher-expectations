@@ -88,7 +88,7 @@ const getters = {
 }
 
 const mutations = {
-  [types.UPDATE_GROUP_SEARCH] (state, search) {
+  [types.UPDATE_TASKS_SEARCH] (state, search) {
     state.search = search
   }
 }

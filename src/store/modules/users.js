@@ -4,82 +4,121 @@ const state = {
   search: '',
   headers: [
     {
-      text: 'Name',
+      text: 'First Name',
       left: true,
-      value: 'name'
+      value: 'firstName'
     },
     {
-      text: 'Description',
+      text: 'Last Name',
       left: true,
-      value: 'description'
+      value: 'lastName'
     },
     {
-      text: 'Type',
+      text: 'School',
       left: true,
-      value: 'type'
+      value: 'school'
     },
     {
-      text: 'Total Members',
-      value: 'members'
+      text: 'E-mail',
+      left: true,
+      value: 'email'
+    },
+    {
+      text: 'Counselor',
+      left: true,
+      value: 'counselor'
+    },
+    {
+      text: 'Class',
+      left: true,
+      value: 'yearInSchool'
+    },
+    {
+      text: 'Points',
+      value: 'points'
     }
   ],
   // TODO: Change to empty array once API is finalized.
   items: [
     {
       value: false,
-      name: 'StudentName',
-      members: 564,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Sophomores',
-      members: 123,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Juniors',
-      members: 623,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Juniors',
-      members: 623,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Juniors',
-      members: 623,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Juniors',
-      members: 623,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Juniors',
-      members: 623,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     },
     {
       value: false,
-      name: 'Seniors',
-      members: 450,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      type: 'Class'
+      firstName: 'StudentName',
+      lastName: 'LastName',
+      school: 'Park High',
+      email: 'studentemail@parkhighgmail.com',
+      counselor: 'Ms.Someone',
+      yearInSchool: 'Sophomore',
+      points: 1000
     }
   ]
 }

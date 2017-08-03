@@ -51,7 +51,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import { UPDATE_GROUP_SEARCH } from '../store/mutation-types'
+  import { UPDATE_EVENTS_SEARCH } from '../store/mutation-types'
 
   export default {
     computed: {
@@ -61,10 +61,10 @@
       ]),
       search: {
         get () {
-          return this.$store.state.groups.search
+          return this.$store.state.events.search
         },
         set (search) {
-          this.$store.commit(UPDATE_GROUP_SEARCH, search)
+          this.$store.commit(UPDATE_EVENTS_SEARCH, search)
         }
       }
     }
