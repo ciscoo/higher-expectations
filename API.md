@@ -110,33 +110,33 @@ For Options Resource details, see the [resource representation](#options) sectio
   "district": String,
   "school": String,
   "yearInSchool": String,
-  "postPlans": String,
-  "extraInter": String,
-  "careerInter": String,
+  "postPlans": [String],
+  "extraInter": [String],
+  "careerInter": [String],
   "type": ObjectId,
   "profile": ObjectId
 }
 ```
 
-| Property              | Value        | Description                        |
-|:----------------------|:-------------|:-----------------------------------|
-| **firstName** 	| **String**   | The user's first name. 	    |
-| **lastName**  	| **String**   | The user's last name.              |
-| **email**     	| **ObjectId** | The user's email. 		    |
-| **google**            | **String**   | Used for google authentication     |
-| **password**  	| **String**   | The user's password.		    |
-| **tokens**            | **String**   | Used for google authentication     |
-| **points**    	| **String**   | The number of points the user has. |
-| **race**     		| **String**   | The user's race. 		    |
-| **ethnicity**         | **String**   | The user's ethnicity. 		    |
-| **district**          | **String**   | The user's school district. 	    |
-| **school**            | **String**   | The user's school name.  	    |
-| **yearInSchool**      | **String**   | The user's year in school. 	    |
-| **postPlans**         | **String**   | The user's post school plans. 	    |
-| **extraInter**        | **String**   | The user's extra interest. 	    |
-| **careerInter**       | **String**   | The user's career interest. 	    |
-| **type** 		| **ObjectId** | The user's group type. 	    |
-| **profile**           | **ObjectId** | Used for google authentication     |
+| Property           | Value        | Description                        |
+|:-------------------|:-------------|:-----------------------------------|
+| **firstName** 	 | **String**   | The user's first name. 	         |
+| **lastName**  	 | **String**   | The user's last name.              |
+| **email**     	 | **ObjectId** | The user's email. 		         |
+| **google**         | **String**   | Used for google authentication     |
+| **password**  	 | **String**   | The user's password.		         |
+| **tokens**         | **Array**    | Used for google authentication     |
+| **points**    	 | **String**   | The number of points the user has. |
+| **race**     		 | **String**   | The user's race. 		             |
+| **ethnicity**      | **String**   | The user's ethnicity. 		     |
+| **district**       | **String**   | The user's school district. 	     |
+| **school**         | **String**   | The user's school name.  	         |
+| **yearInSchool**   | **String**   | The user's year in school. 	     |
+| **postPlans**      | **[String]** | The user's post school plans. 	 |
+| **extraInter**     | **[String]** | The user's extra interest. 	     |
+| **careerInter**    | **[String]** | The user's career interest. 	     |
+| **type** 		     | **ObjectId** | The user's group type. 	         |
+| **profile**        | **ObjectId** | Used for google authentication     |
 
 ### tasks
 
@@ -145,43 +145,39 @@ For Options Resource details, see the [resource representation](#options) sectio
   "_id": ObjectId,
   "name": String,
   "description": String,
-  "startDate": Date,
-  "endDate": Date,
+  "dueDate": Date,
   "webLink": String,
   "location": String,
   "contactInfo": String,
   "points": Number,
-  "validation": String,
   "requirements": String,
   "materialList": String,
   "audience": String,
   "district:" String,
   "school:" String,
-  "postPlans:" String,
-  "extraInter:" String,
-  "careerInter:" String
+  "postPlans:" [String],
+  "extraInter:" [String],
+  "careerInter:" [String]
 }
 ```
 
-| Property            | Value      | Description                                            |
-|:--------------------|:-----------|:-------------------------------------------------------|
-| **name**            | **String** | The title of the task.                                 |
-| **description**     | **String** | The description of what the task is.                   |
-| **startDate**       | **Date**   | The start date of the task. 			    |
-| **endDate**         | **Date**   | The end date of the task. 				    |
-| **webLink** 	      | **String** | A web link to the task page. 			    |
-| **location**        | **String** | The locations where the tasks will take place.         |
-| **contactInfo**     | **String** | The point of contact for the task.  		    |
-| **points**          | **Number** | The ammount of points the task it worth. 		    |
-| **validation**      | **String** | The type of validation used. 			    |
-| **requirements**    | **String** | The requirements to participate in the task. 	    |
-| **materialList**    | **String** | The materials that are needed to complete the task.    |
-| **audience** 	      | **String** | The target audience of the task. 			    |
-| **district**        | **String** | The school districts that the task is for. 	    |
-| **school** 	      | **String** | The specific schools in which the task is for. 	    |
-| **postPlans**       | **String** | The post plans groups that this task is for. 	    |
-| **extraInter**      | **String** | The extra interest groups that the task is for. 	    |
-| **careerInter**     | **String** | The career interest groups that the task is for. 	    |
+| Property            | Value        | Description                                         |
+|:--------------------|:-------------|:----------------------------------------------------|
+| **name**            | **String**   | The title of the task.                              |
+| **description**     | **String**   | The description of what the task is.                |
+| **dueDate**         | **Date**     | The due date of the task. 			               |
+| **webLink** 	      | **String**   | A web link to the task page. 			           |
+| **location**        | **String**   | The locations where the tasks will take place.      |
+| **contactInfo**     | **String**   | The point of contact for the task.  		           |
+| **points**          | **Number**   | The ammount of points the task it worth.            |
+| **requirements**    | **String**   | The requirements to participate in the task. 	   |
+| **materialList**    | **String**   | The materials that are needed to complete the task. |
+| **audience** 	      | **String**   | The target audience of the task. 		           |
+| **district**        | **String**   | The school districts that the task is for. 	       |
+| **school** 	      | **String**   | The specific schools in which the task is for. 	   |
+| **postPlans**       | **[String]** | The post plans groups that this task is for. 	   |
+| **extraInter**      | **[String]** | The extra interest groups that the task is for. 	   |
+| **careerInter**     | **[String]** | The career interest groups that the task is for.    |
 
 ### events
 
@@ -193,44 +189,38 @@ For Options Resource details, see the [resource representation](#options) sectio
   "startDate": Date,
   "endDate": Date,
   "webLink": String,
-  "startTime": String,
-  "endTime": String,
   "location": String,
   "contactInfo": String,
   "points": Number,
-  "validation": String,
   "requirements": String,
   "materialList": String,
   "audience": String,
   "district": String,
   "school": String,
-  "postPlans": String,
-  "extraInter": String,
-  "careerInter": String
+  "postPlans": [String],
+  "extraInter": [String],
+  "careerInter": [String]
 }
 ```
 
-| Property           | Value       | Description                                 |
-|:-------------------|:------------|:--------------------------------------------|
-| **name**  	     | **String**  | The name of the event. 			 |
-| **description**    | **String**  | The description of the event. 		 |
-| **startDate**      | **Date**    | The date in which the event begins.         |
-| **endDate**        | **Date**    | The date in which the event ends.           |
-| **webLink**        | **String**  | The web link to event information.          |
-| **startTime**      | **String**  | The time in which the event starts.         |
-| **endTime**        | **String**  | The time in which the event ends.           |
-| **location**       | **String**  | The location of the event. 		 |
-| **contactInfo**    | **String**  | The point of contact for the event. 	 |
-| **points**  	     | **Number**  | The ammount of points the event is worth.   |
-| **validation**     | **String**  | The type of validation. 			 |
-| **requirements**   | **String**  | The requirements to participate.   	 |
-| **materialList**   | **String**  | The materials that are needed.              |
-| **audience**       | **String**  | The target audence of the event. 		 |
-| **district**       | **String**  | The school district that the event is for.  |
-| **school**         | **String**  | The specific schools that the event is for. |
-| **postPlans**      | **String**  | The target post plans groups. 		 |
-| **extraInter**     | **String**  | The target extra interest groups. 		 |
-| **careerInter**    | **String**  | The target career interest groups. 	 |
+| Property           | Value        | Description                                |
+|:-------------------|:-------------|:-------------------------------------------|
+| **name**  	     | **String**   | The name of the event. 			         |
+| **description**    | **String**   | The description of the event. 		     |
+| **startDate**      | **Date**     | The date in which the event begins.        |
+| **endDate**        | **Date**     | The date in which the event ends.          |
+| **webLink**        | **String**   | The web link to event information.         |
+| **location**       | **String**   | The location of the event. 		         |
+| **contactInfo**    | **String**   | The point of contact for the event. 	     |
+| **points**  	     | **Number**   | The ammount of points the event is worth.  |
+| **requirements**   | **String**   | The requirements to participate.   	     |
+| **materialList**   | **String**   | The materials that are needed.             |
+| **audience**       | **String**   | The target audence of the event. 		     |
+| **district**       | **String**   | The school district that the event is for. |
+| **school**         | **String**   | The specific schools that the event is for.|
+| **postPlans**      | **[String]** | The target post plans groups. 		     |
+| **extraInter**     | **[String]** | The target extra interest groups.          |
+| **careerInter**    | **[String]** | The target career interest groups. 	     |
 
 
 ### groups
@@ -248,7 +238,7 @@ For Options Resource details, see the [resource representation](#options) sectio
 |:----------------|:-------------|:------------------------|
 | **name**        | **String**   | The name of the group.  |
 | **description** | **String**   | A description for group.|
-| **type**        | **ObjectId** | The group type. 	   |
+| **type**        | **ObjectId** | The group type. 	       |
 
 
 ### group types
