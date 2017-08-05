@@ -4,9 +4,9 @@ const state = {
   search: '',
   headers: [
     {
-      text: 'Title',
+      text: 'Name',
       left: true,
-      value: 'title'
+      value: 'name'
     },
     {
       text: 'Description',
@@ -19,83 +19,60 @@ const state = {
       value: 'location'
     },
     {
-      text: 'Points',
-      value: 'points'
+      text: 'Date',
+      left: true,
+      value: 'startDate'
     },
     {
-      text: 'Validation',
-      value: 'validation'
+      text: 'Points',
+      value: 'points'
     }
   ],
   // TODO: Change to empty array once API is finalized.
   items: [
     {
       value: false,
-      title: 'Work',
+      name: 'Work',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
       points: 100,
-      validation: [true, false]
+      startDate: 'July 4th, 2017'
     },
     {
       value: false,
-      title: 'Work #2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      location: 'Other School',
-      points: 150,
-      validation: [false, false]
-    },
-    {
-      value: false,
-      title: 'Work #3',
+      name: 'Work',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
-      points: 200,
-      validation: [true, true]
+      points: 100,
+      startDate: 'July 4th, 2017'
     },
     {
       value: false,
-      title: 'Work #4',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      location: 'School #3',
-      points: 400,
-      validation: [true, false]
-    },
-    {
-      value: false,
-      title: 'Work #5',
+      name: 'Work',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
-      points: 300,
-      validation: [false, true]
+      points: 100,
+      startDate: 'July 4th, 2017'
     },
     {
       value: false,
-      title: 'Work #6',
+      name: 'Work',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
-      points: 250,
-      validation: [true, false]
+      points: 100,
+      startDate: 'July 4th, 2017'
     },
     {
       value: false,
-      title: 'Work #7',
+      name: 'Work',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
-      points: 230,
-      validation: [true, false]
+      points: 100,
+      startDate: 'July 4th, 2017'
     },
     {
       value: false,
-      title: 'Work #8',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
-      location: 'School',
-      points: 290,
-      validation: [true, false]
-    },
-    {
-      value: false,
-      title: 'Work #9',
+      name: 'Work #9',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.i dolorum odio aperiam.',
       location: 'School',
       points: 330,

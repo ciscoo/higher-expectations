@@ -35,7 +35,8 @@
               </v-edit-dialog>
             </td>
             <td>{{ props.item.description }}</td>
-            <td>{{ props.item.assignee }}</td>
+            <td> {{ props.item.requirements }}</td>
+            <td>{{ props.item.audience }}</td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}

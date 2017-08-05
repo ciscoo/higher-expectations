@@ -2,6 +2,16 @@
   <v-layout row wrap justify-space-around>
     <v-flex xs12 md8 class="mb-4">
       <v-card>
+        <v-btn
+          class="light-blue"
+          light
+          small
+          fixed
+          fab
+        >
+          <v-icon>add
+          </v-icon>
+        </v-btn>
         <v-card-title>
           Events
           <v-spacer></v-spacer>
@@ -21,24 +31,68 @@
           <template slot="items" scope="props">
             <td>
               <v-edit-dialog
-                @open="props.item._title = props.item.title"
-                @cancel="props.item.title = props.item._title || props.item.title"
+                @open="props.item._name = props.item.name"
+                @cancel="props.item.name = props.item._name || props.item.name"
                 lazy
-              > {{ props.item.title }}
+              > {{ props.item.name }}
                 <v-text-field
                   slot="input"
                   label="Edit"
-                  v-bind:value="props.item.title"
-                  v-on:change="val => props.item.title = val"
+                  v-bind:value="props.item.name"
+                  v-on:change="val => props.item.name = val"
                   single-line counter="counter"
                 ></v-text-field>
               </v-edit-dialog>
             </td>
-            <td>{{ props.item.description }}</td>
-            <td>{{ props.item.location }}</td>
+
+            <td>
+              <v-edit-dialog
+                @open="props.item._description = props.item.description"
+                @cancel="props.item.description = props.item._description || props.item.description"
+                lazy
+              > {{ props.item.description }}
+                <v-text-field
+                  slot="input"
+                  label="Edit"
+                  v-bind:value="props.item.description"
+                  v-on:change="val => props.item.description = val"
+                  single-line counter="counter"
+                ></v-text-field>
+              </v-edit-dialog>
+              </td>
+
+            <td>
+              <v-edit-dialog
+                @open="props.item._location = props.item.location"
+                @cancel="props.item.location = props.item._location || props.item.location"
+                lazy
+              > {{ props.item.location }}
+                <v-text-field
+                  slot="input"
+                  label="Edit"
+                  v-bind:value="props.item.location"
+                  v-on:change="val => props.item.location = val"
+                  single-line counter="counter"
+                ></v-text-field>
+              </v-edit-dialog>
+              </td>
+
+            <td>
+              <v-edit-dialog
+                @open="props.item._startDate = props.item.startDate"
+                @cancel="props.item.startDate = props.item._startDate || props.item.startDate"
+                lazy
+              > {{ props.item.startDate }}
+                <v-text-field
+                  slot="input"
+                  label="Edit"
+                  v-bind:value="props.item.startDate"
+                  v-on:change="val => props.item.startDate = val"
+                  single-line counter="counter"
+                ></v-text-field>
+              </v-edit-dialog>
+            </td>
             <td class="text-xs-right">{{ props.item.points }}</td>
-            <td v-if="props.item.validation[0]"> Check In: &#10004 <br>Self Complete: </td>
-            <td v-else> Check In: <br>Self Complete:&#10004 </td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
