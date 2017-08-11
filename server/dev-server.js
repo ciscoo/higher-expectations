@@ -57,7 +57,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
   res.redirect(req.session.returnTo || '/')
 })
 
-//app.use(bearerToken())
+// app.use(bearerToken())
 
 // Serve webpack bundle output
 app.use(devMiddleware)
