@@ -1,4 +1,5 @@
 const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 
 const User = require('../models/user-model')
@@ -12,6 +13,28 @@ passport.deserializeUser((id, done) => {
     done(err, user)
   })
 })
+
+/**
+ * Sign in using Email and Password.
+ */
+
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
+   function (username, password, done) {
+     User.findOne({ username: username }, function (err, user) {
+       if (err) { return done(err) }
+       if (!user) {
+         return done(null, false, { message: 'Incorrect username or password' })
+       }
+       if (!user.validPassowrd(password)) {
+         return done(null, false, { message: 'Incorrect username or password' })
+       }
+       return done(null, user)
+     })
+   }
+ ))
 
 /**
  * Sign in with Google.
