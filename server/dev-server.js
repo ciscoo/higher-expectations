@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
+// const bearerToken = require('./middleware/auth')
 
 require('./config/passport')
 
@@ -42,10 +43,21 @@ compiler.plugin('compilation', (compilation) => {
 app.use(passport.initialize())
 app.use(passport.session())
 
+// app.use('/login', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'utils/index.html'))
+// })
+
+// app.post('/login', passport.authenticate('local', { successRedirect: '/',
+//   failureRedirect: '/login',
+//   failureFlash: false})
+// )
+
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
   res.redirect(req.session.returnTo || '/')
 })
+
+//app.use(bearerToken())
 
 // Serve webpack bundle output
 app.use(devMiddleware)
