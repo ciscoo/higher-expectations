@@ -35,7 +35,8 @@
               </v-edit-dialog>
             </td>
             <td>{{ props.item.description }}</td>
-            <td>{{ props.item.assignee }}</td>
+            <td> {{ props.item.requirements }}</td>
+            <td>{{ props.item.audience }}</td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
@@ -48,7 +49,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import { UPDATE_GROUP_SEARCH } from '../store/mutation-types'
+  import { UPDATE_TASKS_SEARCH } from '../store/mutation-types'
 
   export default {
     computed: {
@@ -58,10 +59,10 @@
       ]),
       search: {
         get () {
-          return this.$store.state.groups.search
+          return this.$store.state.tasks.search
         },
         set (search) {
-          this.$store.commit(UPDATE_GROUP_SEARCH, search)
+          this.$store.commit(UPDATE_TASKS_SEARCH, search)
         }
       }
     }

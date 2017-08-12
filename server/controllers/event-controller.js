@@ -7,6 +7,11 @@ exports.store = async (req, res) => {
 }
 
 exports.index = async (req, res) => {
+  const {district} = req.query
+  if (district) {
+    const events = await Event.find({ district }).exec()
+    res.json({data: events})
+  }
   const events = await Event.find().exec()
   res.json({ data: events })
 }

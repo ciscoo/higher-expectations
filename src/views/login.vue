@@ -1,39 +1,60 @@
 <template>
-  <div id="app">
-    <head>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    </head>
+  <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
 
-    <div class="imgcontainer">
-      <img src="../assets/HELogo.png">
-    </div>
-    <body>
-    <div class="login-page">
-      <form class="register-form">
+  <h2>
+    <img src="../assets/HELogo.png">
+  </h2>
 
-        <ol>
-          <label><b>Username</b></label>
 
-          <input type="text" placeholder="Username" name="uname" required>
+  //TODO: Add the registration link
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  <form action="http://google.com">
+    <button type="button" style="width:auto;" class="Googlebtn">Register with Google</button>
+  </form>
 
-          <label><b>Password</b></label>
+  <div id="id01" class="modal">
 
-          <input type="password" placeholder="Password" name="psw" required>
+    <form class="modal-content animate">
+      <div class="modalimg">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="../assets/HELogo.png">
+      </div>
 
-          <button type="submit">Login</button>
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
 
-        </ol>
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
 
-      </form>
-    </div>
-    <span class="psw">Forgot <a href="#">Password?</a></span>
-    </body>
+        <button type="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+
+    </form>
   </div>
+  </body>
+  </html>
 </template>
 
 <script>
   export default {
     name: 'app'
+  }
+
+  // Get the modal
+  var modal = document.getElementById('id01')
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none'
+    }
   }
 </script>
 
@@ -44,65 +65,125 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     font-size: 24px;
-    padding-top: 80px;
-
     background-color: #00ADEF;
   }
 
-  .login-page{
-    width: 80%;
-    padding: 8% 0 0;
-    margin: auto;
-  }
-  body{
-
-    background-color: #00ADEF;
-  }
-
-  span[class=psw]{
-    font-style: italic;
-    color: #FFFFFF;
-
-  }
+  /* Full-width input fields */
   input[type=text], input[type=password] {
-    width: 75%;
-    text-align: left;
+    width: 100%;
     padding: 12px 20px;
-    margin: 45px 0;
+    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
     background-color: #E0E0E0;
-    font-color: #828282;
-    font-size: 20px;
   }
 
-  .register-form {
-    position: relative;
-    margin: 0 auto 100px;
-    padding: 20px;
-    width: 50%;
-    background-color: #FFFFFF;
-    text-align: center;
+  h2{
+    font-family: 'Roboto', sans-serif;
   }
-
+  body{
+    background-color: #00ADEF;
+    font-family: 'Roboto', sans-serif;
+  }
+  /* Set a style for all buttons */
   button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #000000;
-    width: 70px;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
     cursor: pointer;
-    float: right;
+    width: 100%;
+    text-transform: uppercase;
   }
 
   button:hover {
-    opacity: 0.5;
-    color: #FFFFFF;
+    opacity: 0.8;
   }
 
+  .Googlebtn{
+    background-color: #db3236;
+
+  }
+
+  .modalimg {
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: white; /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #00ADEF;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    width: 70%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
 </style>

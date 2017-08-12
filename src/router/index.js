@@ -6,6 +6,7 @@ import Users from '@/views/Users'
 import Tasks from '@/views/Tasks'
 import Deadlines from '@/views/Deadlines'
 import Events from '@/views/Events'
+import Login from '@/views/Login'
 
 Vue.use(Router)
 
@@ -13,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Dasboard',
+      name: 'Dashboard',
       component: Dashboard
     },
     {
@@ -40,6 +41,11 @@ export default new Router({
       path: '/Events',
       name: 'Events',
       component: Events
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

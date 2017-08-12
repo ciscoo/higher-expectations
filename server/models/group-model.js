@@ -21,3 +21,5 @@ const definition = {
 const groupSchema = new mongoose.Schema(definition)
 
 module.exports = mongoose.model('Group', groupSchema)
+ // TODO: Add Member Numbers as part of the model
+

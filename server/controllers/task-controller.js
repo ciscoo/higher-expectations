@@ -7,6 +7,12 @@ exports.store = async (req, res) => {
 }
 
 exports.index = async (req, res) => {
+  const { district } = req.query
+  if (district) {
+    const tasks = await Task.find({ district }).exec()
+    res.json({ data: tasks })
+    return
+  }
   const tasks = await Task.find().exec()
   res.json({ data: tasks })
 }
@@ -26,3 +32,4 @@ exports.update = async (req, res) => {
   const task = Task.findById(req.params.id).exec()
   res.json({ data: task })
 }
+

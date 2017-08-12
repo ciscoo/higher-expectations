@@ -14,7 +14,7 @@
           ></v-text-field>
         </v-card-title>
         <v-data-table
-            v-bind:headers="groupsTableheaders"
+            v-bind:headers="groupsTableHeaders"
             v-bind:items="groupsTableItems"
             v-bind:search="search"
           >

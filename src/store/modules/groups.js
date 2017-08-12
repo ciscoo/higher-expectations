@@ -85,7 +85,7 @@ const state = {
 }
 
 const getters = {
-  groupsTableheaders ({ headers }) {
+  groupsTableHeaders ({ headers }) {
     return headers
   },
   groupsTableItems ({ items }) {
