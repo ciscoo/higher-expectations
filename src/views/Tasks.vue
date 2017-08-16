@@ -19,24 +19,44 @@
           v-bind:search="search"
         >
           <template slot="items" scope="props">
-            <td>
-              <v-edit-dialog
-                @open="props.item._title = props.item.title"
-                @cancel="props.item.title = props.item._title || props.item.title"
-                lazy
-              > {{ props.item.title }}
-                <v-text-field
-                  slot="input"
-                  label="Edit"
-                  v-bind:value="props.item.title"
-                  v-on:change="val => props.item.title = val"
-                  single-line counter="counter"
-                ></v-text-field>
-              </v-edit-dialog>
-            </td>
+            <td>{{ props.item.title }}</td>
             <td>{{ props.item.description }}</td>
-            <td> {{ props.item.requirements }}</td>
-            <td>{{ props.item.audience }}</td>
+            <td>{{ props.item.assignee }}</td>
+            <td>
+              <v-layout row justify-center>
+                <v-dialog v-model="dialog" width = 800
+                @open="props.item = props.item"
+                @cancel="props.item= props._item || props.item">                 
+                  <v-btn primary light slot="activator">Edit</v-btn>
+                  <v-card>
+                    <v-card-title>
+                     <span class="headline">Edit Task</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-text-field
+                        slot="title"
+                        hint="Title"
+                        v-bind:value="props.item.title"                        
+                        single-line counter="counter"
+                      ></v-text-field>
+                      <v-text-field
+                        slot="description"
+                        hint="Description"
+                        value="value"
+                        v-bind:value="props.item.description"
+                        multi-line counter ="counter"
+                        max = 180
+                      ></v-text-field>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn class="blue--text darken-1" flat v-on:click.native="dialog = false">Close</v-btn>
+                      <v-btn class="blue--text darken-1" flat v-on:click.native="props.item.description = description.val">Save </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-layout>
+            </td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
