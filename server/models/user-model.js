@@ -4,7 +4,6 @@ const definition = {
   firstName: String,
   lastName: String,
   email: {type: String, unique: true},
-  username: String,
   google: String,
   password: String,
   tokens: Array,
@@ -33,21 +32,6 @@ const definition = {
   tasks: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Task',
-    unique: true
-  }],
-  events: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Event',
-    unique: true
-  }],
-  completedTasks: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Task',
-    unique: true
-  }],
-  completedEvents: [{
-    type: mongoose.Schema.ObjectId,
-    ref: 'Event',
     unique: true
   }]
 }
