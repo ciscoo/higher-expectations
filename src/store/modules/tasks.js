@@ -4,9 +4,9 @@ const state = {
   search: '',
   headers: [
     {
-      text: 'Title',
+      text: 'Name',
       left: true,
-      value: 'title'
+      value: 'name'
     },
     {
       text: 'Description',
