@@ -3,14 +3,16 @@ const config = require('../config')
 const opn = require('opn')
 const path = require('path')
 const express = require('express')
+// const session = require('express-session')
 const bodyParser = require('body-parser')
 const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.dev.conf')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const mongoose = require('mongoose')
-const passport = require('passport')
+// const passport = require('passport')
 const errorHandlers = require('./middleware/error-handlers')
 const { apiRoutes } = require('./routes')
+// const MongoStore = require('connect-mongo')('session')
 // const bearerToken = require('./middleware/auth')
 
 require('./config/passport')
@@ -40,22 +42,11 @@ compiler.plugin('compilation', (compilation) => {
   })
 })
 
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.session())
 
 // app.use('/login', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'utils/index.html'))
 // })
-
-// app.post('/login', passport.authenticate('local', { successRedirect: '/',
-//   failureRedirect: '/login',
-//   failureFlash: false})
-// )
-
-app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
-  res.redirect(req.session.returnTo || '/')
-})
 
 // app.use(bearerToken())
 
@@ -69,6 +60,29 @@ app.use(hotMiddleware)
 // Allows parsing the body content via `req.body`
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+// app.use(session({
+//   resave: true,
+//   saveUninitialized: true,
+//   secret: process.env.SESSION_SECRET,
+//   store: new MongoStore({
+//     url: process.env.MONGO_URI,
+//     autoReconnect: true,
+//     clear_interval: 3600
+//   })
+// }))
+
+// app.use(passport.initialize())
+// app.use(passport.session())
+
+// app.post('/login', passport.authenticate('local', { successRedirect: '/#/Deadlines',
+//   failureRedirect: '/#/tasks'})
+// )
+
+// app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }))
+// app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/#/login' }), (req, res) => {
+//   res.redirect(req.session.returnTo || ('/#/dashboard' + req.user.email))
+// })
 
 // serve pure static assets
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)

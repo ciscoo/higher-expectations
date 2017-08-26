@@ -1,5 +1,5 @@
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+// const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 
 const User = require('../models/user-model')
@@ -18,23 +18,20 @@ passport.deserializeUser((id, done) => {
  * Sign in using Email and Password.
  */
 
-passport.use(new LocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password'
-},
-   function (username, password, done) {
-     User.findOne({ username: username }, function (err, user) {
-       if (err) { return done(err) }
-       if (!user) {
-         return done(null, false, { message: 'Incorrect username or password' })
-       }
-       if (!user.validPassowrd(password)) {
-         return done(null, false, { message: 'Incorrect username or password' })
-       }
-       return done(null, user)
-     })
-   }
- ))
+// passport.use(new LocalStrategy(
+//    function (username, password, done) {
+//      User.findByUsername(username, function (err, user) {
+//        if (err) { return done(err) }
+//        if (!user) {
+//          return done(null, false, { message: 'Incorrect username or password' })
+//        }
+//        if (user.password !== password) {
+//          return done(null, false, { message: 'Incorrect username or password' })
+//        }
+//        return done(null, user)
+//      })
+//    }
+//  ))
 
 /**
  * Sign in with Google.
@@ -46,7 +43,7 @@ passport.use(new GoogleStrategy({
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
   if (req.user) {
-    User.findOne({ google: profile.id }, (err, existingUser) => {
+    User.findOne({ googleId: profile.id }, (err, existingUser) => {
       if (err) { return done(err) }
       if (existingUser) {
         req.flash('errors', { msg: 'There is already a Google account that belongs to you. Sign in with that account ' })
@@ -54,8 +51,8 @@ passport.use(new GoogleStrategy({
       } else {
         User.findById(req.user.id, (err, user) => {
           if (err) { return done(err) }
-          user.google = profile.id
-          user.tokens.push({ kind: 'google', accessToken })
+          user.googleId = profile.id
+          user.tokens.push({ kind: 'google tokens', accessToken, refreshToken })
           user.profile.name = user.profile.name || profile.displayName
           user.profile.gender = user.profile.gender || profile._json.gender
           user.profile.picture = user.profile.picture || profile._json.image.url
