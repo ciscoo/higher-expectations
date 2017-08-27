@@ -54,7 +54,7 @@ import { UPDATE_GROUP_SEARCH } from '../store/mutation-types'
 export default {
   computed: {
     ...mapGetters([
-      'groupsTableheaders',
+      'groupsTableHeaders',
       'groupsTableItems'
     ]),
     search: {
